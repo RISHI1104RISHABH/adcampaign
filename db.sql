@@ -1,0 +1,19 @@
+CREATE DATABASE IF NOT EXISTS ads_manager;
+USE ads_manager;
+
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100),
+  email VARCHAR(100) UNIQUE,
+  password VARCHAR(100)
+);
+
+CREATE TABLE IF NOT EXISTS campaigns (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255),
+  page VARCHAR(255),
+  budget INT,
+  status VARCHAR(50),
+  user_id INT,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
