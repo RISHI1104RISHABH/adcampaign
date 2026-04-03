@@ -1,19 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ads Manager Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<script>
+const user = JSON.parse(localStorage.getItem("user"));
+if(!user) location.href="login.html";
+</script>
+
 <div class="sidebar">
   <h2>Ads Manager</h2>
+  <p id="userName"></p>
+  <button onclick="logout()">Logout</button>
 </div>
 
 <div class="main">
   <h2 id="welcome"></h2>
 
   <div class="card">
-    <h3>Create Campaign</h3>
-    <input id="name" placeholder="Name">
-    <input id="budget" type="number" placeholder="Budget">
-    <button onclick="create()">Create</button>
+    <h3>Total Campaigns: <span id="total"></span></h3>
   </div>
 
   <div class="card">
-    <h3>Total Campaigns: <span id="total"></span></h3>
+    <input id="name" placeholder="Campaign Name">
+    <input id="budget" placeholder="Budget">
+    <button onclick="create()">Create</button>
   </div>
 
   <div class="card">
@@ -21,4 +37,17 @@
   </div>
 </div>
 
+<div id="toast"></div>
+<button onclick="openDash()">Open Dashboard 📊</button>
 <script src="script.js"></script>
+
+<script>
+userName.innerText=user.name;
+function logout(){
+localStorage.clear();
+location.href="login.html";
+}
+</script>
+
+</body>
+</html>

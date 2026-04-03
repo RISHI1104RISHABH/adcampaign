@@ -8,8 +8,8 @@ const db = mysql.createConnection({
 });
 
 db.connect(err => {
-  if (err) console.log(err);
-  else console.log("MySQL Connected");
+  if (err) console.log("DB ERROR:", err);
+  else console.log("MySQL Connected ✅");
 });
 
 module.exports = db;
