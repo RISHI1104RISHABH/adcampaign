@@ -17,3 +17,11 @@ CREATE TABLE IF NOT EXISTS campaigns (
   user_id INT,
   FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+CREATE TABLE campaigns (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(255),
+  page VARCHAR(255),
+  budget INT,
+  status VARCHAR(50),
+  user_id INT
+);

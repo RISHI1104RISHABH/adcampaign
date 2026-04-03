@@ -1,63 +1,24 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Ads Manager</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<script>
-  const user = JSON.parse(localStorage.getItem("user"));
-  if (!user) window.location.href = "login.html";
-</script>
-
-<!-- Sidebar -->
 <div class="sidebar">
   <h2>Ads Manager</h2>
-  <a href="#">Dashboard</a>
-  <a href="#">Campaigns</a>
 </div>
 
-<!-- Main Content -->
 <div class="main">
+  <h2 id="welcome"></h2>
 
-  <!-- Topbar -->
-  <div class="topbar">
-    <h2 id="welcome"></h2>
-    <button onclick="logout()">Logout</button>
-  </div>
-
-  <!-- Create Campaign -->
   <div class="card">
     <h3>Create Campaign</h3>
-    <input id="name" placeholder="Campaign Name">
-    <select id="page">
-      <option>Fitness</option>
-      <option>Tech</option>
-    </select>
+    <input id="name" placeholder="Name">
     <input id="budget" type="number" placeholder="Budget">
-    <button onclick="createCampaign()">Create</button>
+    <button onclick="create()">Create</button>
   </div>
 
-  <!-- Campaign List -->
   <div class="card">
-    <h3>Your Campaigns</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Page</th>
-          <th>Budget</th>
-          <th>Status</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody id="campaignTable"></tbody>
-    </table>
+    <h3>Total Campaigns: <span id="total"></span></h3>
   </div>
 
+  <div class="card">
+    <table id="table"></table>
+  </div>
 </div>
 
 <script src="script.js"></script>
-</body>
-</html>
